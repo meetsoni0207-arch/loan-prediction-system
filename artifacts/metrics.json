@@ -1,0 +1,346 @@
+{
+  "dataset": {
+    "path": "c:\\ml new pro\\loan_data.csv",
+    "shape_after_drop_loanid": [
+      255347,
+      17
+    ],
+    "default_distribution": {
+      "0": 225694,
+      "1": 29653
+    },
+    "default_rate": 0.11612824901017048,
+    "missing_values": {
+      "Age": 0,
+      "Income": 0,
+      "LoanAmount": 0,
+      "CreditScore": 0,
+      "MonthsEmployed": 0,
+      "NumCreditLines": 0,
+      "InterestRate": 0,
+      "LoanTerm": 0,
+      "DTIRatio": 0,
+      "Education": 0,
+      "EmploymentType": 0,
+      "MaritalStatus": 0,
+      "HasMortgage": 0,
+      "HasDependents": 0,
+      "LoanPurpose": 0,
+      "HasCoSigner": 0,
+      "Default": 0,
+      "Loan_to_Income": 0,
+      "Credit_per_Line": 0,
+      "Income_per_Dependent": 0,
+      "Rate_x_DTI": 0
+    },
+    "outliers": {
+      "Income": {
+        "q1": 48825.5,
+        "q3": 116219.0,
+        "iqr": 67393.5,
+        "lower_bound": -52264.75,
+        "upper_bound": 217309.25,
+        "outlier_count": 0,
+        "outlier_pct": 0.0
+      },
+      "LoanAmount": {
+        "q1": 66156.0,
+        "q3": 188985.0,
+        "iqr": 122829.0,
+        "lower_bound": -118087.5,
+        "upper_bound": 373228.5,
+        "outlier_count": 0,
+        "outlier_pct": 0.0
+      },
+      "DTIRatio": {
+        "q1": 0.3,
+        "q3": 0.7,
+        "iqr": 0.39999999999999997,
+        "lower_bound": -0.3,
+        "upper_bound": 1.2999999999999998,
+        "outlier_count": 0,
+        "outlier_pct": 0.0
+      }
+    }
+  },
+  "validation_model_results": [
+    {
+      "name": "Logistic Regression",
+      "threshold": 0.89,
+      "accuracy": 0.8864891325631487,
+      "precision": 0.6124161073825504,
+      "recall": 0.06154105547125274,
+      "f1": 0.11184311322200093,
+      "roc_auc": 0.7555502858591773,
+      "confusion_matrix": [
+        [
+          44908,
+          231
+        ],
+        [
+          5566,
+          365
+        ]
+      ],
+      "best_params": {
+        "model__C": 0.1
+      }
+    },
+    {
+      "name": "XGBoost",
+      "threshold": 0.9,
+      "accuracy": 0.8860191893479538,
+      "precision": 0.6478494623655914,
+      "recall": 0.040633957174169615,
+      "f1": 0.07647152149769951,
+      "roc_auc": 0.7474906143244923,
+      "confusion_matrix": [
+        [
+          45008,
+          131
+        ],
+        [
+          5690,
+          241
+        ]
+      ],
+      "best_params": {
+        "model__subsample": 1.0,
+        "model__n_estimators": 400,
+        "model__min_child_weight": 3,
+        "model__max_depth": 4,
+        "model__learning_rate": 0.1,
+        "model__colsample_bytree": 0.8
+      }
+    },
+    {
+      "name": "Decision Tree",
+      "threshold": 0.85,
+      "accuracy": 0.884726845506168,
+      "precision": 0.5482456140350878,
+      "recall": 0.04215140785702243,
+      "f1": 0.07828401440425865,
+      "roc_auc": 0.7243442891359438,
+      "confusion_matrix": [
+        [
+          44933,
+          206
+        ],
+        [
+          5681,
+          250
+        ]
+      ],
+      "best_params": {
+        "model__min_samples_split": 10,
+        "model__min_samples_leaf": 20,
+        "model__max_depth": 6,
+        "model__criterion": "gini"
+      }
+    },
+    {
+      "name": "Random Forest",
+      "threshold": 0.77,
+      "accuracy": 0.8846093597023693,
+      "precision": 0.5372549019607843,
+      "recall": 0.04619794301129658,
+      "f1": 0.08507995652848936,
+      "roc_auc": 0.7325904264191768,
+      "confusion_matrix": [
+        [
+          44903,
+          236
+        ],
+        [
+          5657,
+          274
+        ]
+      ],
+      "best_params": {
+        "model__n_estimators": 200,
+        "model__min_samples_split": 10,
+        "model__min_samples_leaf": 1,
+        "model__max_features": null,
+        "model__max_depth": 16
+      }
+    }
+  ],
+  "best_validation_model": {
+    "name": "Logistic Regression",
+    "threshold": 0.89,
+    "accuracy": 0.8864891325631487,
+    "precision": 0.6124161073825504,
+    "recall": 0.06154105547125274,
+    "f1": 0.11184311322200093,
+    "roc_auc": 0.7555502858591773,
+    "confusion_matrix": [
+      [
+        44908,
+        231
+      ],
+      [
+        5566,
+        365
+      ]
+    ],
+    "best_params": {
+      "model__C": 0.1
+    }
+  },
+  "test_metrics": {
+    "name": "Logistic Regression",
+    "threshold": 0.89,
+    "accuracy": 0.8866653612688467,
+    "precision": 0.6185737976782753,
+    "recall": 0.06288990052267746,
+    "f1": 0.11417202326293235,
+    "roc_auc": 0.7616084458037929,
+    "confusion_matrix": [
+      [
+        44909,
+        230
+      ],
+      [
+        5558,
+        373
+      ]
+    ],
+    "best_params": {
+      "model__C": 0.1
+    }
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.8898686270235996,
+      "recall": 0.9949046279270697,
+      "f1-score": 0.9394598665355731,
+      "support": 45139.0
+    },
+    "1": {
+      "precision": 0.6185737976782753,
+      "recall": 0.06288990052267746,
+      "f1-score": 0.11417202326293235,
+      "support": 5931.0
+    },
+    "accuracy": 0.8866653612688467,
+    "macro avg": {
+      "precision": 0.7542212123509374,
+      "recall": 0.5288972642248736,
+      "f1-score": 0.5268159448992528,
+      "support": 51070.0
+    },
+    "weighted avg": {
+      "precision": 0.8583618787790898,
+      "recall": 0.8866653612688467,
+      "f1-score": 0.8436152963681552,
+      "support": 51070.0
+    }
+  },
+  "business_insights": {
+    "default_rate": 0.11612824901017048,
+    "avg_credit_score_defaulted": 559.2861430546657,
+    "avg_credit_score_non_defaulted": 576.2322702420091,
+    "avg_interest_rate_defaulted": 15.896226688699288,
+    "avg_interest_rate_non_defaulted": 13.176993717156858,
+    "avg_dti_defaulted": 0.5124665295248373,
+    "avg_dti_non_defaulted": 0.4986020009393249,
+    "avg_loan_to_income_defaulted": 3.2529996012142575,
+    "avg_loan_to_income_non_defaulted": 2.036171727499509,
+    "top_risk_features": [
+      "num__Age",
+      "num__Loan_to_Income",
+      "num__InterestRate",
+      "num__MonthsEmployed",
+      "cat__EmploymentType_Full-time",
+      "cat__HasDependents_Yes",
+      "cat__HasCoSigner_Yes",
+      "cat__LoanPurpose_Home",
+      "cat__EmploymentType_Unemployed",
+      "cat__MaritalStatus_Married"
+    ]
+  },
+  "top_features": [
+    {
+      "feature": "num__Age",
+      "importance": 0.5916539128431825
+    },
+    {
+      "feature": "num__Loan_to_Income",
+      "importance": 0.47319920926850817
+    },
+    {
+      "feature": "num__InterestRate",
+      "importance": 0.46039730357830744
+    },
+    {
+      "feature": "num__MonthsEmployed",
+      "importance": 0.3408655497412964
+    },
+    {
+      "feature": "cat__EmploymentType_Full-time",
+      "importance": 0.265557553668543
+    },
+    {
+      "feature": "cat__HasDependents_Yes",
+      "importance": 0.19411556370026165
+    },
+    {
+      "feature": "cat__HasCoSigner_Yes",
+      "importance": 0.183354927105509
+    },
+    {
+      "feature": "cat__LoanPurpose_Home",
+      "importance": 0.18207383486250006
+    },
+    {
+      "feature": "cat__EmploymentType_Unemployed",
+      "importance": 0.17079758224057148
+    },
+    {
+      "feature": "cat__MaritalStatus_Married",
+      "importance": 0.15261438647322054
+    },
+    {
+      "feature": "cat__Education_PhD",
+      "importance": 0.14604308172996966
+    },
+    {
+      "feature": "cat__HasMortgage_Yes",
+      "importance": 0.13184758829495938
+    },
+    {
+      "feature": "num__CreditScore",
+      "importance": 0.1303544258126549
+    },
+    {
+      "feature": "num__NumCreditLines",
+      "importance": 0.1142887007668853
+    },
+    {
+      "feature": "cat__Education_High School",
+      "importance": 0.11316317122126285
+    }
+  ],
+  "scoring": {
+    "best_model_name": "Logistic Regression",
+    "threshold": 0.89,
+    "score_formula": "credit_risk_score = clip(round(850 - probability_of_default * 550), 300, 850)",
+    "example_scores": {
+      "low_risk_pd_0.05": 822,
+      "medium_risk_pd_0.30": 685,
+      "high_risk_pd_0.70": 465
+    }
+  },
+  "plots": {
+    "class_distribution": "C:\\loan\\artifacts\\plots\\class_distribution.png",
+    "credit_score_vs_default": "C:\\loan\\artifacts\\plots\\credit_score_vs_default.png",
+    "income_dti_interest_vs_default": "C:\\loan\\artifacts\\plots\\income_dti_interest_vs_default.png",
+    "correlation_heatmap": "C:\\loan\\artifacts\\plots\\correlation_heatmap.png",
+    "outlier_income": "C:\\loan\\artifacts\\plots\\outlier_income.png",
+    "outlier_loanamount": "C:\\loan\\artifacts\\plots\\outlier_loanamount.png",
+    "outlier_dtiratio": "C:\\loan\\artifacts\\plots\\outlier_dtiratio.png",
+    "feature_importance": "C:\\loan\\artifacts\\plots\\logistic_regression_feature_importance.png",
+    "confusion_matrix": "C:\\loan\\artifacts\\plots\\logistic_regression_confusion_matrix.png",
+    "roc_curve": "C:\\loan\\artifacts\\plots\\logistic_regression_roc_curve.png"
+  }
+}
